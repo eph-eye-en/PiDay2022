@@ -1,0 +1,9 @@
+*.elf
+*.hex
+*.o
+*.out
+*.eep
+*.map
+USB/obj
+
+.vscode
