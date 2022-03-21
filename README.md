@@ -19,6 +19,17 @@ onto the microcontroller) to verify the digits produced by the `pi.c`.
 [LUFA](http://www.fourwalledcubicle.com/LUFA.php) code which sends digits via
 USB serial instead of displaying them with LEDs.
 
+## Prerequisites
+
+Compiling anything for the AT90USB162 requires `avr-gcc`, `avr-objcopy`,
+`avr-size` and `dfu-programmer`.
+
+Dissasembling requires `avr-obj-dump`.
+
+Compiling the USB version requires
+[LUFA](http://www.fourwalledcubicle.com/LUFA.php). The path to it needs to be
+updated in `USB/Makefile`.
+
 ## Compiling
 
 * `make main`: Compile the main code into `main.hex`, which can be loaded onto
