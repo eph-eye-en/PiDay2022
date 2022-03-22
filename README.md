@@ -2,7 +2,7 @@
 
 A Pi Day project for the AT90USB162 which calculates hexadecimal digits of pi
 and displays them in binary on LEDs. More info at
-[fency.fun](https://fency.fun).
+[fency.fun](https://fency.fun/projects/f/pi-day-2022/).
 
 Note: I am far from a C expert so this is not model C code.
 
@@ -39,3 +39,9 @@ the microcontroller.
 
 * `make usb`: Compile the contents of `USB`, producing `usb.hex`, which can be
 loaded onto the microcontroller.
+
+## Flashing
+
+* `make load`: Compile `main.hex` and flash it onto the microcontroller.
+
+* `make load-usb`: Compile `usb.hex` and flash it onto the microcontroller.
