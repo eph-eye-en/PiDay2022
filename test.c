@@ -1,5 +1,4 @@
 #include <stdio.h>
-//#include <math.h>
 #include "pi.c"
 
 void binModExpTest() {
@@ -34,12 +33,7 @@ void nthDigitTest() {
 int main() {
 	//binModExpTest();
 	//bbpSumTest();
-	//nthDigitTest();
-
-	char values[] = { sizeof(char), sizeof(short), sizeof(int), sizeof(long),
-		sizeof(long long) };
-	for(int i = 0; i < sizeof(values); i++)
-		printf("%i\n", values[i]);
+	nthDigitTest();
 
 	return 0;
 }

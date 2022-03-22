@@ -88,9 +88,8 @@ int main(void)
 
 	for (;;)
 	{
-		CheckJoystickMovement();
+		SendDigit();
 
-		/* Must throw away unused bytes from the host, or it will lock up while waiting for the device */
 		int16_t b = CDC_Device_ReceiveByte(&VirtualSerial_CDC_Interface);
 		if(b == 'R')
 			n = 0;
@@ -123,35 +122,15 @@ void SetupHardware(void)
 #endif
 
 	/* Hardware Initialization */
-	//Joystick_Init();
 	LEDs_Init();
 	USB_Init();
 }
 
-int i = 0;
-/** Checks for changes in the position of the board joystick, sending strings to the host upon each change. */
-void CheckJoystickMovement(void)
+/** Calculate next hex digit of pi and send via serial, with newlines every 64 digits. */
+void SendDigit(void)
 {
-	//uint8_t     JoyStatus_LCL = Joystick_GetStatus();
 	char*       ReportString  = NULL;
 	static bool ActionSent    = false;
-
-	//if (JoyStatus_LCL & JOY_UP)
-	//  ReportString = "Joystick Up\r\n";
-	//else if (JoyStatus_LCL & JOY_DOWN)
-	//  ReportString = "Joystick Down\r\n";
-	//else if (JoyStatus_LCL & JOY_LEFT)
-	//  ReportString = "Joystick Left\r\n";
-	//else if (JoyStatus_LCL & JOY_RIGHT)
-	//  ReportString = "Joystick Right\r\n";
-	//else if (JoyStatus_LCL & JOY_PRESS)
-	//  ReportString = "Joystick Pressed\r\n";
-	//else
-	//  ActionSent = false;
-
-	//ReportString = "Hello, world!\r\n";
-	//if(i++ % 100000 == 0)
-	//	ActionSent = false;
 
 	if(n % 64 == 0)
 		fprintf(&USBSerialStream, "\n");

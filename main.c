@@ -19,7 +19,7 @@ void updateDigit() {
 
 	PORTD &= ~0xf;
 
-	if(oldN == 0) {
+	if(oldN == 0) {	//Display 3 as the first digit
 		PORTD |= 0x3;
 		return;
 	}
